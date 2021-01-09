@@ -1,0 +1,17 @@
+{
+    "name": "matiastasca/spiral_test",
+    "description": "Spiral Test",
+    "authors": [
+        {
+            "name": "Matias Tasca",
+            "email": "matias.tasca@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload" : {
+        "psr-4" : {
+            "mtasca\\Qudio\\"          : "src/",
+            "mtasca\\Qudio\\Console\\" : "app/Console/"
+        }
+    }
+}

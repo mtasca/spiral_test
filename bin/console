@@ -1,0 +1,24 @@
+#!/usr/bin/env php
+<?php
+require __DIR__.'/../vendor/autoload.php';
+
+use mtasca\Qudio\Console\Application;
+
+set_time_limit(0);
+date_default_timezone_set('UTC');
+$command_name = $_SERVER['argv'][1];
+
+$parameters = [];
+
+for($i = 2; $i < count($_SERVER['argv']); $i++) {
+    $argument = $_SERVER['argv'][$i];
+    // The -- is found as first part of the argument string
+    if(strpos($argument, "--") == 0) {
+        $argument = str_replace("--", "", $argument);
+        $parameter = explode("=", $argument);
+        $parameters[$parameter[0]] = $parameter[1];
+    }
+}
+
+$console = new Application();
+$console->runCommand($command_name, $parameters);
